@@ -12,6 +12,7 @@ var AVV=require('./av.js')
 AV=AVV.AV
 console.log(process.argv);
 console.log(process.argv[2])
+apkfilename = process.argv[2]
 var GameScore = AV.Object.extend("GameScore");
 var gameScore = new GameScore();
 gameScore.set("score", 1337);
@@ -58,7 +59,7 @@ var filebuffer = fs.readFileSync('musictest.apk','base64', function(error, file)
 console.log("filebuffer")
 //console.log(filebuffer)
 //var file = new AV.File("musictest.apk", filebuffer);
-var file = new AV.File("musictest.apk", { base64: filebuffer });
+var file = new AV.File(apkfilename, { base64: filebuffer });
 
 file.save().then(function() {
     // The file has been saved to AV.
