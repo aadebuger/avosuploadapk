@@ -14,6 +14,7 @@ AV.initialize("fsebnsc875hvcxh6te431tq9ed7ksvvmfhbemglxnjt3drac","tca4qsklckx8lr
 console.log(process.argv);
 console.log(process.argv[2])
 apkfilename = process.argv[2]
+apkname = process.argv[3]
 var GameScore = AV.Object.extend("GameScore");
 var gameScore = new GameScore();
 gameScore.set("score", 1337);
@@ -48,7 +49,7 @@ fs.open('musictest.apk','r',function(err, fd){
 });
 */
 
-var filebuffer = fs.readFileSync('musictest.apk','base64', function(error, file) {
+var filebuffer = fs.readFileSync(apkfilename,'base64', function(error, file) {
     if(error) {
 
         console.log("error");
@@ -60,7 +61,7 @@ var filebuffer = fs.readFileSync('musictest.apk','base64', function(error, file)
 console.log("filebuffer")
 //console.log(filebuffer)
 //var file = new AV.File("musictest.apk", filebuffer);
-var file = new AV.File(apkfilename, { base64: filebuffer });
+var file = new AV.File(apkname, { base64: filebuffer });
 
 file.save().then(function() {
     // The file has been saved to AV.
