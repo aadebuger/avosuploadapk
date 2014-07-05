@@ -10,6 +10,7 @@ var AVV=require('./av.js')
 //console.log(AVV)
 //console.log(AVV.AV)
 AV=AVV.AV
+AV.initialize("fsebnsc875hvcxh6te431tq9ed7ksvvmfhbemglxnjt3drac","tca4qsklckx8lrrq6v5uq79kezfkou0o52dui8rnv9ckz01f","1zn0cgtg8zgav9cadzl9vpnlqzxuxprgzggkfb19bja1c8ee")
 console.log(process.argv);
 console.log(process.argv[2])
 apkfilename = process.argv[2]
