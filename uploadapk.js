@@ -74,7 +74,7 @@ file.save().then(function() {
     console.log("fail")
 });
 AV.Push.send({
-    channels: [ "Public" ],
+//    channels: [ "Public" ],
     data: {
         alert: "Public message"
     }
