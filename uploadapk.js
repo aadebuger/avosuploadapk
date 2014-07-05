@@ -69,13 +69,16 @@ file.save().then(function() {
 //    console.log(file)
     console.log(file['_url'])
 
+    var pushmessage = "tesstanyone "+file['_url']
+    AV.Push.send({
+//    channels: [ "Public" ],
+        data: {
+            alert: pushmessage
+        }
+    });
+
 }, function(error) {
     // The file either could not be read, or could not be saved to AV.
     console.log("fail")
 });
-AV.Push.send({
-//    channels: [ "Public" ],
-    data: {
-        alert: "Public message"
-    }
-});
+
