@@ -15,6 +15,8 @@ console.log(process.argv);
 console.log(process.argv[2])
 apkfilename = process.argv[2]
 apkname = process.argv[3]
+prompt = process.argv[4]
+
 var GameScore = AV.Object.extend("GameScore");
 var gameScore = new GameScore();
 gameScore.set("score", 1337);
@@ -69,11 +71,12 @@ file.save().then(function() {
 //    console.log(file)
     console.log(file['_url'])
 
-    var pushmessage = "tesstanyone "+file['_url']
+    var pushmessage = prompt+","+ apkname +","+ file['_url']
     AV.Push.send({
-//    channels: [ "Public" ],
+        "channels":[ "public"],
         data: {
-            alert: pushmessage
+            "action": "com.avos.UPDATE_STATUS",
+            "name":pushmessage
         }
     });
 
